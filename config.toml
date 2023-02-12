@@ -3,6 +3,7 @@ enableRobotsTXT = true
 disableHugoGeneratorInject = true
 uglyURLs = false
 disableKinds = ["taxonomy", "taxonomyTerm"]
+publishDir = "docs"
 
 [params]
 dev_environment = false
