@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+
+  <style>
+    {{ (resources.Get "style.scss" | toCSS | postCSS (dict "use" "autoprefixer") | minify).Content | safeCSS }}
+  </style>
+
+  <link rel="canonical" href="{{ .Permalink }}">
+  <title>{{ .Title }}</title>
+  <meta name="description" content="{{ .Description }}">
+
+</head>
+<body>
+
+  <div id="app"></div>
+
+  {{ $jsApp := resources.Get "app.js" | resources.ExecuteAsTemplate "_temp_app.js" . | minify }}
+  <script>
+    {{ $jsApp.Content | safeJS }}
+  </script>
+
+</body>
+</html>

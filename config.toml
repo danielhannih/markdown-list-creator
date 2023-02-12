@@ -1,0 +1,11 @@
+baseURL = "https://danielhannih.github.io/markdown-list-creator"
+enableRobotsTXT = true
+disableHugoGeneratorInject = true
+uglyURLs = false
+disableKinds = ["taxonomy", "taxonomyTerm"]
+
+[params]
+dev_environment = false
+
+[markup.goldmark.renderer]
+unsafe= true

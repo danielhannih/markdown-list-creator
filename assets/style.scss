@@ -1,0 +1,96 @@
+:root {
+  --text: #29282e;
+  --body: #edeef4;
+  --paper: #fff;
+}
+
+$padding: 24px;
+
+body,
+textarea,
+input {
+  font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica,
+    Arial, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+  position: relative;
+  height: 100vh;
+  background: var(--body);
+}
+
+.toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+
+  label {
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  input {
+    margin-left: 16px;
+  }
+}
+
+input {
+  padding: $padding/4 $padding;
+  width: 10px;
+}
+
+
+input {
+  &.checkbox {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+input:not(.checkbox),
+button,
+textarea,
+.output {
+  font-size: 17px;
+  border: none;
+  border-radius: 12px;
+  appearance: none;
+  resize: none;
+  background: var(--paper);
+
+}
+
+button {
+  font-weight: 800;
+  padding: $padding/2 $padding;
+  cursor: pointer;
+}
+
+textarea,
+.output {
+  width: 720px;
+  height: 30vh;
+  padding: $padding;
+  margin-bottom: $padding;
+  &:after,
+  &:focus {
+    border: none;
+    outline: none;
+  }
+}
+
+.output {
+
+}
