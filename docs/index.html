@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+
+  <style>
+    :root{--text:#29282e;--body:#edeef4;--paper:#fff}body,textarea,input{font-family:BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.4;color:var(--text)}body{display:flex;justify-content:center;align-items:center;flex-direction:column;margin:0;position:relative;height:100vh;background:var(--body)}.toolbar{display:flex;justify-content:center;align-items:center;gap:8px;margin-bottom:16px}.toolbar label{font-size:14px;font-weight:700}.toolbar input{margin-left:16px}input{padding:6px 24px;width:10px}input.checkbox{width:24px;height:24px}input:not(.checkbox),button,textarea,.output{font-size:17px;border:none;border-radius:12px;-webkit-appearance:none;-moz-appearance:none;appearance:none;resize:none;background:var(--paper)}button{font-weight:800;padding:12px 24px;cursor:pointer}textarea,.output{width:720px;height:30vh;padding:24px;margin-bottom:24px}textarea:after,textarea:focus,.output:after,.output:focus{border:none;outline:none}
+  </style>
+
+  <link rel="canonical" href="https://danielhannih.github.io/markdown-list-creator/">
+  <title>Markdown List Creator</title>
+  <meta name="description" content="Helper tool to create markdown lists.">
+
+</head>
+<body>
+
+  <div id="app"></div>
+
+  
+  <script>
+    (()=>{const p=document.body;put=(e,t)=>e.forEach(e=>t.appendChild(e)),make=(e,t=[])=>(x=document.createElement(e),t.forEach(e=>x.classList.add(e)),x);const f=e=>{e.select(),e.setSelectionRange(0,99999),navigator.clipboard.writeText(e.value)},h=make("div",["toolbar"]),t=make("input"),i=make("textarea"),n=make("textarea",["output"]),a=make("button"),r=make("input",["checkbox","list-only"]),l=make("label"),s=make("input",["checkbox","shuffle"]),d=make("label"),c=make("input",["checkbox","numbered"]),u=make("label"),o=make("input",["checkbox","pastecopy"]),m=make("label");d.innerText="Shuffle",l.innerText="List only",u.innerText="Numbered list",m.innerText="Copy on paste";let e=":";t.placeholder=e,t.oninput=()=>e=t.value,r.type="checkbox",c.type="checkbox",s.type="checkbox",o.type="checkbox",a.innerText="Copy",i.oninput=()=>{let t,l=i.value.split(/\n/),a="";s.checked?t=l.sort(()=>.5-Math.random()):t=l;const d=(e=0)=>c.checked?`${e+1}.`:"-";r.checked?t.forEach((e,t)=>{a+=`${d(t)} ${e}
+`}):t.forEach((t,n)=>{let s=t.slice(0,t.indexOf(e)),o=t.slice(t.indexOf(e)+1);a+=`${d(n)} **${s}${e}**${o}
+`}),n.value=a,o.checked&&f(n)},a.addEventListener("click",()=>f(n)),put([t,r,l,c,u,s,d,o,m],h),put([h,i,n,a],p)})()
+  </script>
+
+</body>
+</html>
